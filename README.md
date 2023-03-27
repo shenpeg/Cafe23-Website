@@ -1,3 +1,4 @@
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10644890&assignment_repo_type=AssignmentRepo)
 67-272: Cafe23 Project - Phase 4
 ===
 We will continue our project to develop a foundation for the Cafe23 management system in this phase. We will focus our efforts on building out the controllers and views to make for an effective front end for our e-commerce platform. This is largely a test-driven phase -- we give you all the controller tests and some view tests and your job is to pass these tests.  In this process, you will see how our testing suite can serve as documentation and help us define system requirements.
