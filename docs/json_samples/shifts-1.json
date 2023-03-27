@@ -1,0 +1,40 @@
+//> curl -X GET -H "Accept: application/json" "http://localhost:3000/v1/shifts/1.json"
+
+{
+	"data": {
+		"id": "1",
+		"type": "shift",
+		"attributes": {
+			"store": {
+				"data": {
+					"id": "2",
+					"type": "store",
+					"attributes": {
+						"name": "Oakland"
+					}
+				}
+			},
+			"employee": {
+				"data": {
+					"id": "3",
+					"type": "employee",
+					"attributes": {
+						"name": "Wilson, Ralph",
+						"role": "Employee",
+						"pay_grade": "C1",
+						"pay_rate": 9.75,
+						"over_18": false
+					}
+				}
+			},
+			"date": "2023-01-03",
+			"start_time": "11:00",
+			"end_time": "14:00",
+			"duration": 3,
+			"report_completed": true,
+			"jobs_worked": [
+				"Cashier"
+			]
+		}
+	}
+}

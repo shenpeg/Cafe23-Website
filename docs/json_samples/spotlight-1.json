@@ -1,0 +1,43 @@
+//> curl -X GET -H "Accept: application/json" "http://localhost:3000/v1/spotlight/6.json"
+
+{
+	"data": {
+		"id": "6",
+		"type": "employee_spotlight",
+		"attributes": {
+			"name": "Kathryn Janeway",
+			"current_store": "Oakland",
+			"role": "Manager",
+			"phone": "399-768-4208",
+			"date_of_birth": "February 20, 1993",
+			"assignment_history": [
+				{
+					"data": {
+						"id": "6",
+						"type": "assignment",
+						"attributes": {
+							"store": "Oakland",
+							"pay_grade": "M1",
+							"start_date": "2022-04-20",
+							"end_date": null
+						}
+					}
+				}
+			],
+			"shifts_at_current_assignment": [
+				{
+					"data": {
+						"id": "6",
+						"type": "shift",
+						"attributes": {
+							"date": "2023-02-20",
+							"status": "started",
+							"start_time": "11:00",
+							"end_time": "14:00"
+						}
+					}
+				}
+			]
+		}
+	}
+}

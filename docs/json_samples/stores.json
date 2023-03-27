@@ -1,0 +1,44 @@
+//> curl -X GET -H "Accept: application/json" "http://localhost:3000/v1/stores.json"
+
+{
+	"data": [
+		{
+			"id": "1",
+			"type": "store",
+			"attributes": {
+				"name": "CMU",
+				"address": "5000 Forbes Avenue, Pittsburgh, PA 15213",
+				"num_current_employees": 2,
+				"list_current_employees": [
+					"Crawford, Cindy",
+					"Sisko, Ben"
+				]
+			}
+		},
+		{
+			"id": "3",
+			"type": "store",
+			"attributes": {
+				"name": "Hazelwood",
+				"address": "5000 Forbes Avenue, Pittsburgh, PA 15213",
+				"num_current_employees": 0,
+				"list_current_employees": [
+
+				]
+			}
+		},
+		{
+			"id": "2",
+			"type": "store",
+			"attributes": {
+				"name": "Oakland",
+				"address": "5000 Forbes Avenue, Pittsburgh, PA 15213",
+				"num_current_employees": 2,
+				"list_current_employees": [
+					"Wilson, Ralph",
+					"Janeway, Kathryn"
+				]
+			}
+		}
+	]
+}

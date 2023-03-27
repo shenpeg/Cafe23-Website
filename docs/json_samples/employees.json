@@ -1,0 +1,169 @@
+//> curl -X GET -H "Accept: application/json" "http://localhost:3000/v1/employees.json"
+
+{
+	"data": [
+		{
+			"id": "2",
+			"type": "employee",
+			"attributes": {
+				"name": "Crawford, Cindy",
+				"phone": "669-465-3621",
+				"age": 17,
+				"role": "Employee",
+				"current_assignment": {
+					"data": {
+						"id": "3",
+						"type": "assignment",
+						"attributes": {
+							"store": "CMU",
+							"pay_grade": "C1",
+							"as_of": "December 20, 2021"
+						}
+					}
+				},
+				"recent_shifts": [
+
+				]
+			}
+		},
+		{
+			"id": "1",
+			"type": "employee",
+			"attributes": {
+				"name": "Gruberman, Ed",
+				"phone": "288-785-2390",
+				"age": 19,
+				"role": "Employee",
+				"current_assignment": {
+					"data": null
+				},
+				"recent_shifts": [
+
+				]
+			}
+		},
+		{
+			"id": "7",
+			"type": "employee",
+			"attributes": {
+				"name": "Heimann, Alex",
+				"phone": "879-447-5486",
+				"age": 19,
+				"role": "Admin",
+				"current_assignment": {
+					"data": null
+				},
+				"recent_shifts": [
+
+				]
+			}
+		},
+		{
+			"id": "6",
+			"type": "employee",
+			"attributes": {
+				"name": "Janeway, Kathryn",
+				"phone": "399-768-4208",
+				"age": 30,
+				"role": "Manager",
+				"current_assignment": {
+					"data": {
+						"id": "6",
+						"type": "assignment",
+						"attributes": {
+							"store": "Oakland",
+							"pay_grade": "M1",
+							"as_of": "April 20, 2022"
+						}
+					}
+				},
+				"recent_shifts": [
+
+				]
+			}
+		},
+		{
+			"id": "5",
+			"type": "employee",
+			"attributes": {
+				"name": "Sisko, Ben",
+				"phone": "412-268-2323",
+				"age": 19,
+				"role": "Manager",
+				"current_assignment": {
+					"data": {
+						"id": "5",
+						"type": "assignment",
+						"attributes": {
+							"store": "CMU",
+							"pay_grade": "M2",
+							"as_of": "August 20, 2022"
+						}
+					}
+				},
+				"recent_shifts": [
+
+				]
+			}
+		},
+		{
+			"id": "3",
+			"type": "employee",
+			"attributes": {
+				"name": "Wilson, Ralph",
+				"phone": "620-270-2770",
+				"age": 16,
+				"role": "Employee",
+				"current_assignment": {
+					"data": {
+						"id": "2",
+						"type": "assignment",
+						"attributes": {
+							"store": "Oakland",
+							"pay_grade": "C1",
+							"as_of": "April 20, 2022"
+						}
+					}
+				},
+				"recent_shifts": [
+					{
+						"data": {
+							"id": "1",
+							"type": "shift",
+							"attributes": {
+								"date": "2023-02-17",
+								"status": "finished",
+								"start_time": "11:00",
+								"end_time": "14:00"
+							}
+						}
+					},
+					{
+						"data": {
+							"id": "2",
+							"type": "shift",
+							"attributes": {
+								"date": "2023-02-18",
+								"status": "finished",
+								"start_time": "12:00",
+								"end_time": "16:00"
+							}
+						}
+					},
+					{
+						"data": {
+							"id": "3",
+							"type": "shift",
+							"attributes": {
+								"date": "2023-02-19",
+								"status": "finished",
+								"start_time": "13:00",
+								"end_time": "14:00"
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

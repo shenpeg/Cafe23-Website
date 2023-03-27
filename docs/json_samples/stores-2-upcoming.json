@@ -1,0 +1,68 @@
+//> curl -X GET -H "Accept: application/json" "http://localhost:3000/v1/stores/2/upcoming.json"
+
+{
+	"data": [
+		{
+			"id": "6",
+			"type": "shift_upcoming",
+			"attributes": {
+				"store": "Oakland",
+				"shifts": {
+					"data": {
+						"id": "6",
+						"type": "shift",
+						"attributes": {
+							"employee": {
+								"data": {
+									"id": "6",
+									"type": "employee",
+									"attributes": {
+										"name": "Janeway, Kathryn",
+										"role": "Manager",
+										"pay_grade": "M1",
+										"pay_rate": 20.75,
+										"over_18": true
+									}
+								}
+							},
+							"date": "2023-02-20",
+							"start_time": "11:00",
+							"end_time": "14:00"
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "4",
+			"type": "shift_upcoming",
+			"attributes": {
+				"store": "Oakland",
+				"shifts": {
+					"data": {
+						"id": "4",
+						"type": "shift",
+						"attributes": {
+							"employee": {
+								"data": {
+									"id": "3",
+									"type": "employee",
+									"attributes": {
+										"name": "Wilson, Ralph",
+										"role": "Employee",
+										"pay_grade": "C1",
+										"pay_rate": 9.75,
+										"over_18": false
+									}
+								}
+							},
+							"date": "2023-02-20",
+							"start_time": "13:00",
+							"end_time": "14:00"
+						}
+					}
+				}
+			}
+		}
+	]
+}

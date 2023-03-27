@@ -1,0 +1,5 @@
+<% flash.each do |name, msg| %>
+  <div data-alert data-options="animation_speed:500, animation:'fadeOut';" class="alert-box <%= flash[:notice] ? "success" : "warning" %>">
+    <%= msg %>
+  </div>
+<% end %>
