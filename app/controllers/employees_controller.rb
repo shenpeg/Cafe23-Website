@@ -43,12 +43,12 @@ class EmployeesController <  ApplicationController
 
   def destroy
     @employee = Employee.find(params[:id])
-    if @employee.destroyable
+    if @employee.shifts.empty?
       @employee.destroy
       flash[:notice] = "Employee deleted."
       redirect_to employees_url
     else
-      flash[:notice] = "Employee cannot be deleted because they have an upcoming shift or have worked at the store within the last 30 days."
+      flash[:notice] = "Employee cannot be deleted because of previously worked shifts."
       render :show
     end
   end

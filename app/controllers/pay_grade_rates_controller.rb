@@ -9,6 +9,7 @@ class PayGradeRatesController <  ApplicationController
   end
 
   def new
+    @pay_grade_rate = PayGradeRate.new
   end
 
   def edit

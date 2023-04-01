@@ -9,6 +9,7 @@ class ShiftsController < ApplicationController
   end
 
   def new
+    @shift = Shift.new
   end
 
   def edit

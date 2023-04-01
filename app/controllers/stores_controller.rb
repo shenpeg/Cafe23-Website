@@ -43,7 +43,7 @@ class StoresController < ApplicationController
   def destroy
     ## We don't allow destroy (will deactivate instead)
     @store.make_inactive
-    #redirect_to stores_url, notice: "Successfully deactivated #{@store.proper_name} along with associated stuff."
+    #redirect_to stores_url, notice: "Successfully deactivated #{@store.name} along with associated stuff."
   end
 
   private

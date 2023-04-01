@@ -1,4 +1,4 @@
-class JobsController <  ApplicationController
+class ShiftJobsController < ApplicationController
   before_action :check_login
   authorize_resource
 
@@ -9,6 +9,7 @@ class JobsController <  ApplicationController
   end
 
   def new
+    @shift_job = ShiftJob.new
   end
 
   def edit
@@ -24,7 +25,7 @@ class JobsController <  ApplicationController
   end
 
   private
-    def job_params
-      params.require(:job).permit(:name, :description, :active)
+    def shift_job_params
+      params.require(:shift_job).permit(:shift_id, :job_id)
     end
 end

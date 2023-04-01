@@ -1,4 +1,4 @@
-class JobsController <  ApplicationController
+class PayRollController <  ApplicationController
   before_action :check_login
   authorize_resource
 
@@ -9,6 +9,7 @@ class JobsController <  ApplicationController
   end
 
   def new
+    @pay_grade = PayGrade.new
   end
 
   def edit
@@ -23,8 +24,4 @@ class JobsController <  ApplicationController
   def destroy
   end
 
-  private
-    def job_params
-      params.require(:job).permit(:name, :description, :active)
-    end
 end

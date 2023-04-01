@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   resources :stores
   resources :employees
   resources :assignments
-  resources :jobs
-  resources :paygrades
   resources :shifts
-
+  resources :jobs
+  resources :pay_grades
+  resources :pay_grade_rates
 
 
   # You can have the root of your site routed with 'root'
