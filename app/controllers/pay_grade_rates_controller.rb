@@ -1,4 +1,4 @@
-class PayGradesController <  ApplicationController
+class PayGradeRatesController <  ApplicationController
   before_action :check_login
   authorize_resource
 
@@ -24,7 +24,8 @@ class PayGradesController <  ApplicationController
   end
 
   private
-    def pay_grade_params
-      params.require(:pay_grade).permit(:level, :active)
+    def pay_grade_rate_params
+      params.require(:pay_grade_rate).permit(:pay_grade_id, :rate, :start_date, :end_date)
     end
+
 end
