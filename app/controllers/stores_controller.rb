@@ -9,7 +9,7 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
-    @current_employees = @store.current_employees.alphabetical.to_a  
+    @current_employees = @store.employees.joins(:current_assignment).where(assignments: { store_id: @store.id })
   end
 
   def new

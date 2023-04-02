@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: :logout
 
   # Resource routes (maps HTTP verbs to controller actions automatically):
-  resources :stores
+  resources :stores, except: [:destroy]
   resources :employees
   resources :assignments
   resources :shifts
