@@ -4,8 +4,13 @@ class AssignmentsController <  ApplicationController
   authorize_resource
     
   def index
-    @current_assignments = Assignment.current.chronological.to_a
-    @past_assignments = Assignment.past.chronological.to_a
+    if current_user.employee_role?
+      @current_assignments = current_user.assignments.current.chronological.to_a
+      @past_assignments = current_user.assignments.past.chronological.to_a
+    else
+      @current_assignments = Assignment.current.chronological.to_a
+      @past_assignments = Assignment.past.chronological.to_a
+    end
   end
 
   def show
@@ -38,11 +43,12 @@ class AssignmentsController <  ApplicationController
   end
 
   def destroy
-    if @assignment.destroy
+    if @assignment.shifts.started.empty? && @assignment.shifts.finished.empty?
+      @assignment.destroy
       flash[:notice] = "Removed assignment from the system."
       redirect_to assignments_path
     else
-      redirect_to @assignment, notice: "Could not remove assignment from the system."
+      render :show, notice: "Could not remove assignment from the system."
     end
   end
 

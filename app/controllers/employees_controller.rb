@@ -3,8 +3,13 @@ class EmployeesController <  ApplicationController
   authorize_resource
 
   def index
-    @active_employees = Employee.active.all.paginate(page: params[:page]).per_page(15)
-    @inactive_employees = Employee.inactive.all.paginate(page: params[:page]).per_page(15)
+    if current_user.manager_role?
+      @active_employees = current_user.current_assignment.store.employees.active.all.paginate(page: params[:page]).per_page(15)
+      @inactive_employees = current_user.current_assignment.store.employees.inactive.all.paginate(page: params[:page]).per_page(15)
+    else
+      @active_employees = Employee.active.all.paginate(page: params[:page]).per_page(15)
+      @inactive_employees = Employee.inactive.all.paginate(page: params[:page]).per_page(15)
+    end
   end
 
   def show
