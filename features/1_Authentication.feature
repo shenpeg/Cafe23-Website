@@ -20,7 +20,7 @@ Feature: Authentication
     Then I should see "Username and/or password is invalid"
 		
   Scenario: Logout
-    Given a logged in customer
+    Given a logged in admin
     When I go to the home page
     And I click on the link "Logout"
     Then I should see "Logged out!"
