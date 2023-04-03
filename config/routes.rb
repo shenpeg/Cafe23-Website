@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :employees
   resources :assignments
   resources :shifts
+  resources :shift_jobs, only: [:destroy]
   resources :jobs, except: [:show]
   resources :pay_grades, except: [:destroy]
   resources :pay_grade_rates
