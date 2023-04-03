@@ -5,23 +5,17 @@ class PayGradeRatesController <  ApplicationController
   def index
   end
 
-  def show
-  end
-
   def new
     @pay_grade_rate = PayGradeRate.new
   end
 
-  def edit
-  end
-
   def create
-  end
-
-  def update
-  end
-
-  def destroy
+    @pay_grade_rate = PayGradeRate.new(pay_grade_rate_params)
+    if @pay_grade_rate.save
+      redirect_to pay_grade_path(@pay_grade_rate.pay_grade), notice: 'Pay grade rate was successfully created.'
+    else
+      render :new
+    end
   end
 
   private

@@ -21,10 +21,11 @@ Rails.application.routes.draw do
   resources :assignments
   resources :shifts
   resources :jobs, except: [:show]
-  resources :pay_grades
+  resources :pay_grades, except: [:destroy]
   resources :pay_grade_rates
 
   # Custom routes
+  #get 'shift_today', to: 'shifts#route_clock', as: :shift_today_path
   get 'shift_jobs/new', to: 'shift_jobs#new', as: :new_shift_job
   post 'shift_jobs', to: 'shift_jobs#create', as: :shift_jobs
 
