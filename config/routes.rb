@@ -20,10 +20,16 @@ Rails.application.routes.draw do
   resources :employees
   resources :assignments
   resources :shifts
-  resources :jobs
+  resources :jobs, except: [:show]
   resources :pay_grades
   resources :pay_grade_rates
 
+  # Custom routes
+  get 'shift_jobs/new', to: 'shift_jobs#new', as: :new_shift_job
+  post 'shift_jobs', to: 'shift_jobs#create', as: :shift_jobs
+
+  get 'payrolls/store_form', to: 'payrolls#store_form', as: :store_form
+  get 'payrolls/employee_form', to: 'payrolls#employee_form', as: :employee_form
 
   # You can have the root of your site routed with 'root'
   root 'home#index'
