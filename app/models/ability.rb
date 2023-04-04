@@ -36,7 +36,7 @@ class Ability
         current_employees.include?(emp)
       end
       # can handle store payrolls
-      can [:store_form, :store_report], :payrolls_controller
+      can [:store_form, :store_report, :store_payroll], :payrolls_controller
     end
 
     ## EMPLOYEE
