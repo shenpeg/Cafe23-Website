@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: :login
   get 'logout', to: 'sessions#destroy', as: :logout
 
+    # time shifts routes
+    get 'shifts/time_clock', to: 'shifts#time_clock', as: :time_clock
+    patch 'shifts/time_in', to: 'shifts#time_in', as: :time_in
+    patch 'shifts/time_out', to: 'shifts#time_out', as: :time_out
+
   # Resource routes (maps HTTP verbs to controller actions automatically):
   resources :stores, except: [:destroy]
   resources :employees
@@ -30,6 +35,7 @@ Rails.application.routes.draw do
   get 'shift_jobs/new', to: 'shift_jobs#new', as: :new_shift_job
   post 'shift_jobs', to: 'shift_jobs#create', as: :shift_jobs
 
+  # payroll routes
   get 'payrolls/store_form', to: 'payrolls#store_form', as: :store_form
   get 'payrolls/employee_form', to: 'payrolls#employee_form', as: :employee_form
 

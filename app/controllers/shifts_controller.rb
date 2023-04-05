@@ -42,27 +42,40 @@ class ShiftsController < ApplicationController
     end
   end
 
-  # POST /time_in
   def time_in
-    shift = current_user.current_shift
+    @shift = current_user.shifts.find_by(date: Date.today)
 
-    if shift.nil?
-      redirect_to home_path, notice: 'You do not have any shifts today.'
+    if @shift.present?
+      @shift.update(start_time: Time.current)
+      flash[:notice] = "Your shift has started."
     else
-      shift.clock_in!
-      redirect_to home_path, notice: 'Your shift has started.'
+      flash[:notice] = "You do not have any shifts today"
     end
+  
+    redirect_to home_path, notice: flash[:notice]
   end
 
-  # POST /time_out
   def time_out
-    shift = current_user.current_shift
+    @shift = current_user.shifts.find_by(date: Date.today)
 
-    if shift.nil?
-      redirect_to home_path, notice: 'You do not have any shifts today.'
+    if @shift.present?
+      @shift.update(end_time: Time.current)
+      flash[:notice] = "Your shift has ended."
     else
-      shift.clock_out!
-      redirect_to home_path, notice: 'Your shift has ended.'
+      flash[:notice] = "You do not have any shifts today"
+    end
+  
+    redirect_to home_path, notice: flash[:notice]
+  end
+
+  def time_clock
+    @shift_today = current_user.shifts.find_by(date: Date.today)
+
+    if @shift_today.present?
+       @clock_message = "Please clock in"
+    else
+      flash[:notice] = "You do not have any shifts today"
+      redirect_to home_path
     end
   end
 
