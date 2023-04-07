@@ -15,10 +15,15 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: :login
   get 'logout', to: 'sessions#destroy', as: :logout
 
-  # time shifts routes
+  # Time Shifts routes
   get 'shifts/time_clock', to: 'shifts#time_clock', as: :time_clock
   patch 'shifts/time_in', to: 'shifts#time_in', as: :time_in
   patch 'shifts/time_out', to: 'shifts#time_out', as: :time_out
+  # Payroll routes
+  get 'payrolls/store_form', to: 'payrolls#store_form', as: :store_form
+  get 'payrolls/employee_form', to: 'payrolls#employee_form', as: :employee_form
+  get 'payrolls/employee_payroll', to: 'payrolls#employee_payroll', as: :employee_payroll
+  get 'payrolls/store_payroll', to: 'payrolls#store_payroll', as: :store_payroll
 
   # Resource routes (maps HTTP verbs to controller actions automatically):
   resources :stores, except: [:destroy]
@@ -30,16 +35,10 @@ Rails.application.routes.draw do
   resources :pay_grades, except: [:destroy]
   resources :pay_grade_rates
 
-  # Custom routes
+  # Other custom routes
   #get 'shift_today', to: 'shifts#route_clock', as: :shift_today_path
   get 'shift_jobs/new', to: 'shift_jobs#new', as: :new_shift_job
   post 'shift_jobs', to: 'shift_jobs#create', as: :shift_jobs
-
-  # payroll routes
-  get 'payrolls/store_form', to: 'payrolls#store_form', as: :store_form
-  get 'payrolls/employee_form', to: 'payrolls#employee_form', as: :employee_form
-  get 'payrolls/employee_payroll', to: 'payrolls#employee_payroll', as: :employee_payroll
-  get 'payrolls/store_payroll', to: 'payrolls#store_payroll', as: :store_payroll
 
   # You can have the root of your site routed with 'root'
   root 'home#index'
