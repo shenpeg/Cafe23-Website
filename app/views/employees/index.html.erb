@@ -14,7 +14,23 @@
       <tr>
         <td><%= employee.name %></td>
         <td><%= employee.current_assignment %></td>
-        <td><%= employee.phone %></td>
+        <td><%= number_to_phone(employee.phone, delimiter: '-') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Inactive Employees</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @inactive_employees.each do |employee| %>
+      <tr>
+        <td><%= employee.name %></td>
       </tr>
     <% end %>
   </tbody>

@@ -12,8 +12,8 @@
     <% @active_stores.each do |store| %>
       <tr>
         <td><%= store.name %></td>
-        <td><%= store.assignments.all %></td>
-        <td><%= store.phone %></td>
+        <td><%= store.assignments.size %></td>
+        <td><%= number_to_phone(store.phone, delimiter: '-') %></td>
       </tr>
     <% end %>
   </tbody>
