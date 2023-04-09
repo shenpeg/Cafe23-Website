@@ -13,7 +13,13 @@
     <% @active_employees.each do |employee| %>
       <tr>
         <td><%= employee.name %></td>
-        <td><%= employee.current_assignment %></td>
+        <td>
+          <% if employee.current_assignment %>
+            <%= employee.current_assignment.store ? employee.current_assignment.store.name : 'n/a' %>
+          <% else %>
+            n/a
+          <% end %>
+        </td>        
         <td><%= number_to_phone(employee.phone, delimiter: '-') %></td>
       </tr>
     <% end %>
