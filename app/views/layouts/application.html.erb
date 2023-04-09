@@ -10,15 +10,30 @@
   </head>
 
   <body>
-    <header>
+    <!-- Partials for the topbar and navigation -->
+    <%= render :partial => "partials/topbar" %>
+    <% if logged_in? && current_user.admin_role? %>
+      <%= render :partial => "partials/nav" %>
+    <% elsif logged_in? && current_user.manager_role? %>
+      <%= render :partial => "partials/nav" %>
+    <% else %>
+      <%= render :partial => "partials/nav" %>
+    <% end %>
 
-    </header>
-    <main>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <!-- Flash messages appear here -->
+          <%= render :partial => "partials/flash" %>
 
+          <!-- MAIN CONTENT OF TEMPLATE GOES HERE -->
           <%= yield %>
 
-    </main>
+        </div>
+      </div>
+    </div>
     
+    <%= render :partial => "partials/footer" %> 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>   
   </body>
 </html>

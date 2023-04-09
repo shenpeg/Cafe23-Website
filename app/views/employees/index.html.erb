@@ -1,0 +1,21 @@
+<h1>Employees</h1>
+
+<h3>Active Employees at Cafe23</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Current Assignments</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @active_employees.each do |employee| %>
+      <tr>
+        <td><%= employee.name %></td>
+        <td><%= employee.current_assignment %></td>
+        <td><%= employee.phone %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,24 @@
+<h1>Active Stores owned by Cafe23</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Current Assignments</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @active_stores.each do |store| %>
+      <tr>
+        <td><%= store.name %></td>
+        <td><%= store.assignments.all %></td>
+        <td><%= store.phone %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Inactive Stores</h2>
+
+<p>No inactive stores to display.</p>
