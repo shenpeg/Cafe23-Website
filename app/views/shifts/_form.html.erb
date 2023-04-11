@@ -1,0 +1,25 @@
+<div class="card">    
+  <div class="card-content">
+    <%= simple_form_for(@shift) do |f| %>
+      <%= f.error_notification %>
+      <div class="row">
+        <div class="form-inputs">
+          <%= f.input :assignment_id, collection: Assignment.alphabetical.active.to_, include_blank: true %>
+          <%= f.input :date, label_html: { class: 'active' } %>
+          <%= f.input :start_time, label_html: { class: 'active' } %>
+          <%= f.input :end_time, label_html: { class: 'active' }, include_blank: true %>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="row">
+    <div class="col s12">
+      <%= render :partial => "shift_fields", locals: {f: f} %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-actions col s7">
+      <%= f.button :submit %>
+    </div>
+  </div>
+<% end %>
