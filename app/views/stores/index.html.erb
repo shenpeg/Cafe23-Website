@@ -1,5 +1,6 @@
-<h1>Active Stores owned by Cafe23</h1>
+<h2>Stores</h2>
 
+<h3>Active Stores</h3>
 <table>
   <thead>
     <tr>
@@ -19,6 +20,18 @@
   </tbody>
 </table>
 
-<h2>Inactive Stores</h2>
-
-<p>No inactive stores to display.</p>
+<h3>Inactive Stores</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @inactive_stores.each do |store| %>
+      <tr>
+        <td><%= store.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

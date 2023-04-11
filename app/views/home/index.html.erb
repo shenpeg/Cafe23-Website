@@ -1,3 +1,16 @@
 <div class="row">  
-  <h4>Welcome to Cafe23!</h4>  
+  <h3>Welcome to Cafe23!</h3>  
+
+  <% if current_user && current_user.admin_role? %>
+  <h5>Quick Actions:</h5>
+  <%= link_to 'Payroll for Employee', employee_form_path, class: 'waves-effect waves-light btn' %>
+  <br><br>
+  <%= link_to 'Payroll for Store', store_form_path, class: 'waves-effect waves-light btn' %>
+  <br><br>
+  <%= link_to 'Create New Employee', new_employee_path, class: 'waves-effect waves-light btn' %>
+  <% end %>
+
+  <% if current_user && current_user.employee_role? %>
+  <h4>Upcoming Shifts</h4>
+  <% end %>
 </div>

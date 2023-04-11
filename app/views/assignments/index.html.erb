@@ -1,5 +1,6 @@
-<h1>Current Assignments</h1>
+<h2>Cafe Assignments</h2>
 
+<h3>Current Assignments</h3>
 <table>
   <thead>
     <tr>
@@ -12,6 +13,30 @@
   </thead>
   <tbody>
     <% @current_assignments.each do |assignment| %>
+      <tr>
+        <td><%= assignment.start_date.strftime("%m/%d/%y") %></td>
+        <td><%= assignment.store.name %></td>
+        <td><%= assignment.employee.proper_name %></td>
+        <td><%= assignment.pay_grade.level %></td>
+        <td><%= assignment.shifts.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Past Assignments</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Start Date</th>
+      <th>Store</th>
+      <th>Employee</th>
+      <th>Pay Grade</th>
+      <th>Shift Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @past_assignments.each do |assignment| %>
       <tr>
         <td><%= assignment.start_date.strftime("%m/%d/%y") %></td>
         <td><%= assignment.store.name %></td>

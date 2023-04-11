@@ -99,12 +99,14 @@ th.align_center {
 
 /********** BUTTONS ********/
 .btn {
-  background-color: #FFCB05;
+  background-color: #fcfcfc;
   color: #000;
+  border-radius: 30px;
+  border: 1px solid black;
 }
 
 .btn:hover {
-  background-color: #ffff00;
+  background-color: #aba5a6;
   color: #000;
 }
 
