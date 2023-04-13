@@ -1,7 +1,7 @@
 module EmployeeAuthentication 
 
   # For view dropdowns
-  ROLES_LIST = [['Employee', 1],['Manager', 2],['Administrator', 3]].freeze
+  ROLES_LIST = [['Employee', 'employee'],['Manager', 'manager'],['Administrator', 'admin']].freeze
   
   # login by username
   def Employee.authenticate(username, password)
