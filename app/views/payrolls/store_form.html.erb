@@ -1,9 +1,19 @@
-<%= form_with url: store_payroll_path, local: true do |f| %>
-  <div class="control-group">
-    <%= f.label :id, "Store" %>
-    <div class="controls">
-      <%= f.collection_select :id, Store.active.alphabetical.all, :id, :name, {}, { class: "form-control" } %>
-    </div>
+<div class="card">    
+  <div class="card-content">
+    <%= form_with url: store_payroll_path, local: true do |f| %>
+      <div class="control-group">
+        <%= f.label :id, "Store" %>
+        <div class="controls">
+          <%= f.collection_select :id, Store.active.alphabetical.all, :id, :name, {}, { class: "form-control" } %>
+        </div>
+      </div>
+   </div>
+</div>
+
+<div class="row">
+  <div class="form-actions col s7">
+    <%= f.button :submit, class: 'waves-effect waves-light btn'  %>
   </div>
+</div>
 
 <% end %>

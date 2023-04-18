@@ -1,41 +1,43 @@
 <div class="row">  
   <h3>Welcome to Cafe23!</h3>  
 
-  <% if current_user && current_user.admin_role? %>
-    <h5>Quick Actions:</h5>
-    <%= link_to 'Payroll for Employee', employee_form_path, class: 'waves-effect waves-light btn' %>
-    <br><br>
-    <%= link_to 'Payroll for Store', store_form_path, class: 'waves-effect waves-light btn' %>
-    <br><br>
-    <%= link_to 'Create New Employee', new_employee_path, class: 'waves-effect waves-light btn' %>
-  <% end %>
+  <% if current_user %>
+    <% if current_user.admin_role? %>
+      <h5>Quick Actions:</h5>
+      <%= link_to 'Payroll for Employee', employee_form_path, class: 'waves-effect waves-light btn' %>
+      <br><br>
+      <%= link_to 'Payroll for Store', store_form_path, class: 'waves-effect waves-light btn' %>
+      <br><br>
+      <%= link_to 'Create New Employee', new_employee_path, class: 'waves-effect waves-light btn' %>
+    <% end %>
 
-  <% if current_user && current_user.manager_role? %>
-    <h5>Quick Actions:</h5>
-    <%= link_to 'Payroll for Store', store_form_path, class: 'waves-effect waves-light btn' %>
-    <br><br>
-    <%= link_to 'Create New Shift', new_shift_path, class: 'waves-effect waves-light btn' %>
-    <br><br>
-    <%= link_to 'Record A Job', new_job_path, class: 'waves-effect waves-light btn' %>
-  <% end %>
+    <% if current_user.manager_role? %>
+      <h5>Quick Actions:</h5>
+      <%= link_to 'Payroll for Store', store_form_path, class: 'waves-effect waves-light btn' %>
+      <br><br>
+      <%= link_to 'Create New Shift', new_shift_path, class: 'waves-effect waves-light btn' %>
+      <br><br>
+      <%= link_to 'Record A Job', new_job_path, class: 'waves-effect waves-light btn' %>
+    <% end %>
 
-  <% if current_user && current_user.employee_role? %>
-    <h4>Below is a list of your upcoming shifts.</h4>
-    <table class="striped highlight"> 
-      <thead> <th>Shift</th> 
-      <th class="align_center">Options</th> 
-      </thead> 
-      <% for shift in current_user.shifts.upcoming %> 
-      <tr> 
-        <td><%= link_to "#{shift.id}", shift_path(shift) %></td> 
-        <td class="align_center"> 
-          <%= link_to(time_clock_path(shift)) do %> 
-          <i class="material-icons">Start</i> 
-          <% end %> 
-        </td> 
-      </tr> 
-      <% end %> 
-    </table>
+    <% if current_user.employee_role? %>
+      <h4>Below is a list of your upcoming shifts.</h4>
+      <table class="striped highlight"> 
+        <thead> <th>Shift</th> 
+        <th class="align_center">Options</th> 
+        </thead> 
+        <% for shift in current_user.shifts.upcoming %> 
+        <tr> 
+          <td><%= link_to "#{shift.id}", shift_path(shift) %></td> 
+          <td class="align_center"> 
+            <%= link_to(time_clock_path(shift)) do %> 
+            <i class="material-icons">Start</i> 
+            <% end %> 
+          </td> 
+        </tr> 
+        <% end %> 
+      </table>
+    <% end %>
 
   <% else %>
     <p>We're a cafe chain that's passionate about coffee, food, and community. 

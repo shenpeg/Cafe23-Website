@@ -1,8 +1,11 @@
 <h2>Employees</h2>
 
-<div style="text-align: right;">
-<%= link_to "Add New Employee", new_employee_path, class: 'waves-effect waves-light btn' %> 
-</div>
+<% if can? :new, Employee %>
+  <%= link_to "Add New Employee", new_employee_path, class: 'waves-effect waves-light btn' %> 
+<% end %>
+<% if can? [:employee_form, :employee_report, :employee_payroll], :payrolls_controller %>
+  <%= link_to "Generate Employee Payroll", employee_form_path, class: 'waves-effect waves-light btn' %> 
+<% end %>
 
 <h3>Active Employees at Cafe23</h3>
 <table>

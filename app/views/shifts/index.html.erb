@@ -31,7 +31,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @shifts.completed.each do |shift| %>
+    <% @shifts.upcoming.each do |shift| %>
       <tr>
         <td><%= shift.employee.name %></td>
         <td><%= shift.date.strftime("%m/%d/%y") %></td>
@@ -53,7 +53,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @shifts.upcoming.each do |shift| %>
+    <% @shifts.completed.each do |shift| %>
       <tr>
         <td><%= shift.employee.name %></td>
         <td><%= shift.date.strftime("%m/%d/%y") %></td>

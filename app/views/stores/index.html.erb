@@ -1,4 +1,10 @@
 <h2>Stores</h2>
+<% if can? [:store_form, :store_report, :store_payroll], :payrolls_controller %>
+  <div style="text-align: left;">
+  <%= link_to "Generate Store Payroll", store_form_path, class: 'waves-effect waves-light btn' %> 
+  </div>
+<% end %>
+
 <% if @active_stores.empty? %>
   <h4>There are no owners in the system at this time.</h4>
 <% else %>
