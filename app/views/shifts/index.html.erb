@@ -1,4 +1,8 @@
 <h2>Shifts</h2>
+<% if can? :new, Shift %>
+  <%= link_to "Add New Shift", new_shift_path, class: 'waves-effect waves-light btn' %> 
+<% end %>
+
 <table>
   <thead>
     <tr>

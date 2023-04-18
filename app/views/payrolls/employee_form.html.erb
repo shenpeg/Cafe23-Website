@@ -1,4 +1,6 @@
-<div class="card">    
+<h3> Generate Payroll for Employee </h3>
+
+<div class="card">
   <div class="card-content">
     <%= form_with url: employee_payroll_path, local: true do |f| %>
       <div class="control-group">
@@ -15,5 +17,7 @@
     <%= f.button :submit, class: 'waves-effect waves-light btn'  %>
   </div>
 </div>
+
+<%= link_to 'Back', :back %>
 
 <% end %>

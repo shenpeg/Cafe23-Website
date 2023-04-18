@@ -12,9 +12,7 @@
         <% end %>
 
         <% if current_user && current_user.employee_role? %>
-          <li><%= link_to 'Stores', stores_path %></li>
-          <li><%= link_to 'Upcoming Shifts', shifts_path %></li>
-          <li><%= link_to 'Jobs', jobs_path %></li>
+          <li><%= link_to 'Upcoming Shifts', home_path %></li>
         <% end %>
       
       <% else %>

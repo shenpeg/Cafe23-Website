@@ -22,21 +22,25 @@
 
     <% if current_user.employee_role? %>
       <h4>Below is a list of your upcoming shifts.</h4>
-      <table class="striped highlight"> 
-        <thead> <th>Shift</th> 
-        <th class="align_center">Options</th> 
-        </thead> 
-        <% for shift in current_user.shifts.upcoming %> 
-        <tr> 
-          <td><%= link_to "#{shift.id}", shift_path(shift) %></td> 
-          <td class="align_center"> 
-            <%= link_to(time_clock_path(shift)) do %> 
-            <i class="material-icons">Start</i> 
-            <% end %> 
-          </td> 
-        </tr> 
-        <% end %> 
-      </table>
+      <% if current_user.shifts.upcoming.empty? %>
+        <p>You have no upcoming shifts.</p> 
+      <% else %>
+        <table class="striped highlight"> 
+          <thead> <th>Shift</th> 
+          <th class="align_center">Options</th> 
+          </thead> 
+          <% for shift in current_user.shifts.upcoming %> 
+          <tr> 
+            <td><%= link_to "#{shift.id}", shift_path(shift) %></td> 
+            <td class="align_center"> 
+              <%= link_to(time_clock_path(shift)) do %> 
+              <i class="button">Start</i> 
+              <% end %> 
+            </td> 
+          </tr> 
+          <% end %> 
+        </table>
+      <% end %>
     <% end %>
 
   <% else %>

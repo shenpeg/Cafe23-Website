@@ -1,3 +1,5 @@
+<h3> Generate Payroll for Store </h3>
+
 <div class="card">    
   <div class="card-content">
     <%= form_with url: store_payroll_path, local: true do |f| %>
@@ -15,5 +17,7 @@
     <%= f.button :submit, class: 'waves-effect waves-light btn'  %>
   </div>
 </div>
+
+<%= link_to 'Back', :back %>
 
 <% end %>

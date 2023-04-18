@@ -1,4 +1,4 @@
-<%= f.input :assignment, label_html: { class: 'active' } %>
+<%= f.input :employee_id, collection: Employee.alphabetical.active.to_a, include_blank: true %>
 <%= f.input :date, label_html: { class: 'active' } %>
 <%= f.input :start_time, label_html: { class: 'active' } %>
 <%= f.input :end_time, label_html: { class: 'active' } %>
