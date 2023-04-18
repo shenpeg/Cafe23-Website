@@ -1,9 +1,19 @@
-<%= form_with url: employee_payroll_path, local: true do |f| %>
-  <div class="control-group">
-    <%= f.label :id, "Employee" %>
-    <div class="controls">
-      <%= f.collection_select :id, Employee.active.alphabetical.all, :id, :proper_name, {}, { class: "form-control" } %>
-    </div>
+<div class="card">    
+  <div class="card-content">
+    <%= form_with url: employee_payroll_path, local: true do |f| %>
+      <div class="control-group">
+        <%= f.label :id, "Employee" %>
+        <div class="controls">
+          <%= f.collection_select :id, Employee.active.alphabetical.all, :id, :proper_name, {}, { class: "form-control" } %>
+        </div>
+      </div>
   </div>
+</div>
+
+<div class="row">
+  <div class="form-actions col s7">
+    <%= f.button :submit %>
+  </div>
+</div>
 
 <% end %>

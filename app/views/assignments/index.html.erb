@@ -29,6 +29,7 @@
   <thead>
     <tr>
       <th>Start Date</th>
+      <th>End Date</th>
       <th>Store</th>
       <th>Employee</th>
       <th>Pay Grade</th>
@@ -39,6 +40,7 @@
     <% @past_assignments.each do |assignment| %>
       <tr>
         <td><%= assignment.start_date.strftime("%m/%d/%y") %></td>
+        <td><%= assignment.end_date.strftime("%m/%d/%y") %></td>
         <td><%= assignment.store.name %></td>
         <td><%= assignment.employee.proper_name %></td>
         <td><%= assignment.pay_grade.level %></td>

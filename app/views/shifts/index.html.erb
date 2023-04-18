@@ -1,6 +1,46 @@
 <h2>Shifts</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Employee Name</th>
+      <th>Date</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shifts.each do |shift| %>
+      <tr>
+        <td><%= shift.employee.name %></td>
+        <td><%= shift.date.strftime("%m/%d/%y") %></td>
+        <td><%= shift.start_time.strftime("%H:%M") %></td>
+        <td><%= shift.end_time.strftime("%H:%M") %></td>      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <h3>Upcoming Shifts</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Employee Name</th>
+      <th>Date</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shifts.completed.each do |shift| %>
+      <tr>
+        <td><%= shift.employee.name %></td>
+        <td><%= shift.date.strftime("%m/%d/%y") %></td>
+        <td><%= shift.start_time.strftime("%H:%M") %></td>
+        <td><%= shift.end_time.strftime("%H:%M") %></td>      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <h3>Completed Shifts</h3>
 <table>
@@ -13,7 +53,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @shifts.each do |shift| %>
+    <% @shifts.upcoming.each do |shift| %>
       <tr>
         <td><%= shift.employee.name %></td>
         <td><%= shift.date.strftime("%m/%d/%y") %></td>

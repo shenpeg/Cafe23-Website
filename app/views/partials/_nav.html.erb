@@ -2,18 +2,23 @@
   <div class="container">
     <ul class="left hide-on-med-and-down">
       <% if current_user && (current_user.admin_role? || current_user.manager_role?) %>
-      <li><%= link_to 'Stores', stores_path %></li>
-      <li><%= link_to 'Employees', employees_path %></li>
-      <li><%= link_to 'Assignments', assignments_path %></li>
-      <li><%= link_to 'Shifts', shifts_path %></li>
-      <li><%= link_to 'Jobs', jobs_path %></li>
-      <li><%= link_to 'Pay Grades', pay_grades_path %></li>
+        <li><%= link_to 'Stores', stores_path %></li>
+        <li><%= link_to 'Employees', employees_path %></li>
+        <li><%= link_to 'Assignments', assignments_path %></li>
+        <li><%= link_to 'Shifts', shifts_path %></li>
+        <li><%= link_to 'Jobs', jobs_path %></li>
+        <li><%= link_to 'Pay Grades', pay_grades_path %></li>
       <% end %>
 
       <% if current_user && current_user.employee_role? %>
-      <li><%= link_to 'Stores', stores_path %></li>
-      <li><%= link_to 'Upcoming Shifts', shifts_path %></li>
-      <li><%= link_to 'Jobs', jobs_path %></li>
+        <li><%= link_to 'Stores', stores_path %></li>
+        <li><%= link_to 'Upcoming Shifts', shifts_path %></li>
+        <li><%= link_to 'Jobs', jobs_path %></li>
+      <% else %>
+        <li><%= link_to 'Home', home_path %></li>
+        <li><%= link_to 'About', about_path %></li>
+        <li><%= link_to 'Contact', contact_path %></li>
+        <li><%= link_to 'Private Policy', privacy_path %></li>
       <% end %>
     </ul>
     <ul class="right">

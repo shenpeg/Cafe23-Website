@@ -1,37 +1,40 @@
 <h2>Stores</h2>
-
-<h3>Active Stores owned by Cafe23</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Current Assignments</th>
-      <th>Phone</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @active_stores.each do |store| %>
+<% if @active_stores.empty? %>
+  <h4>There are no owners in the system at this time.</h4>
+<% else %>
+  <h3>Active Stores owned by Cafe23</h3>
+  <table>
+    <thead>
       <tr>
-        <td><%= store.name %></td>
-        <td><%= store.assignments.size %></td>
-        <td><%= number_to_phone(store.phone, delimiter: '-') %></td>
+        <th>Name</th>
+        <th>Current Assignments</th>
+        <th>Phone</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @active_stores.each do |store| %>
+        <tr>
+          <td><%= store.name %></td>
+          <td><%= store.assignments.size %></td>
+          <td><%= number_to_phone(store.phone, delimiter: '-') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<h3>Inactive Stores</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @inactive_stores.each do |store| %>
+  <h3>Inactive Stores</h3>
+  <table>
+    <thead>
       <tr>
-        <td><%= store.name %></td>
+        <th>Name</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @inactive_stores.each do |store| %>
+        <tr>
+          <td><%= store.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
