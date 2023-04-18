@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-content">
+    <h5>Employee Information for <%= @employee.proper_name %></h5><br />
+
+    <b>Employee Role:&nbsp;&nbsp;</b>
+      <%= link_to @employee.role %><br /><br />
+
+    <b>Phone:&nbsp;&nbsp;</b>
+      <%= @employee.phone %><br /><br />
+
+    <b>Date of Birth:&nbsp;&nbsp;</b>
+      <%= @employee.date_of_birth.strftime("%B %d, %Y") %><br /><br />
+
+    <b>Active in Cafe23?&nbsp;&nbsp;</b>
+      <%= @employee.active ? "Yes" : "No" %><br><br><br>
+  </div>
+</div>
