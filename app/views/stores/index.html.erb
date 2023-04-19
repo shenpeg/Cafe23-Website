@@ -21,7 +21,7 @@
       <% @active_stores.each do |store| %>
         <tr>
           <td><%= link_to "#{store.name}", store_path(store) %></td>
-          <td><%= store.assignments.size %></td>
+          <td><%= store.assignments.current.size %></td>
           <td><%= number_to_phone(store.phone, delimiter: '-') %></td>
         </tr>
       <% end %>

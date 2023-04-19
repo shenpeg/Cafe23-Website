@@ -1,8 +1,9 @@
-<% if @store_payroll.present? %>
-  <h3> Payroll Report for <%= @store_payroll.first.store.store_name </h3> %>
+<h3> Payroll Report </h3>
 
-  <p>Start Date: <%= @start_date %></p>
-  <p>End Date: <%= @end_date %></p>
+<div class="card">    
+  <div class="card-content">
+    <h5>Time Period:</h5>
+    <p><%= @start_date.strftime("%B %d, %Y") %> - <%= @end_date.strftime("%B %d, %Y") %></p>
 
   <table>
     <thead>
@@ -16,12 +17,12 @@
       </tr>
     </thead>
     <tbody>
-      <% @store_payroll.payroll.each do |record| %>
+      <% @store_payroll.each do |record| %>
         <tr>
           <td><%= record.employee.proper_name %></td>
           <td><%= record.ssn %></td>
           <td><%= record.pay_grade %></td>
-          <td><%= record.pay_rate</td> %>
+          <td><%= record.pay_rate %></td>
           <td><%= record.hours %></td>
           <td><%= record.pay_earned %></td>
         </tr>
@@ -29,9 +30,5 @@
     </tbody>
   </table>
 
-<% else %>
-  <h3> Payroll Report </h3>
-  <p>No payrolls found for the specified date range of this store.</p>
-<% end %>
-
-  <%= link_to 'Back', :back %>
+  </div>
+</div>

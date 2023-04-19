@@ -1,4 +1,11 @@
 <h2>Cafe Assignments</h2>
+  </div>
+  <% if can? :new, Assignment %>
+    <div class="card-action">
+      <%= link_to "Add New Assignment", new_assignment_path, class: 'waves-effect waves-light btn' %>
+    </div>
+  <% end %>
+</div>
 
 <h3>Current Assignments</h3>
 <table>

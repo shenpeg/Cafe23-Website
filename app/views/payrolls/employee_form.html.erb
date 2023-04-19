@@ -10,7 +10,7 @@
           <%= f.collection_select :employee_id, Employee.active.alphabetical.to_a, :id, :name, prompt: true %><br>
           <%= f.date_field :start_date, value: (params[:start_date].present? ? Date.parse(params[:start_date]).strftime("%m/%d/%Y") : Date.current.strftime("%Y-%m-%d")) %>
           <%= f.date_field :end_date, value: (params[:end_date].present? ? Date.parse(params[:end_date]).strftime("%m/%d/%Y") : Date.current.strftime("%Y-%m-%d")) %>  
-      </div>
+        </div>
     </div>
   </div>
 </div>
