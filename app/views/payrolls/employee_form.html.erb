@@ -7,8 +7,11 @@
         <%= form_with url: employee_payroll_path, method: "get" do |f| %>
         <div class="row">
           <div class="form-inputs">
+          <%= f.label :employee_id %>
           <%= f.collection_select :employee_id, Employee.active.alphabetical.to_a, :id, :name, prompt: true %><br>
+          <%= f.label :start_date %>
           <%= f.date_field :start_date, value: (params[:start_date].present? ? Date.parse(params[:start_date]).strftime("%m/%d/%Y") : Date.current.strftime("%Y-%m-%d")) %>
+          <%= f.label :end_date %>
           <%= f.date_field :end_date, value: (params[:end_date].present? ? Date.parse(params[:end_date]).strftime("%m/%d/%Y") : Date.current.strftime("%Y-%m-%d")) %>  
         </div>
     </div>

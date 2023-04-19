@@ -1,5 +1,5 @@
 <h2>Stores</h2>
-<% if can? [:store_form, :store_report, :store_payroll], :payrolls_controller %>
+<% if current_user.manager_role? || current_user.admin_role? %>
   <div style="text-align: left;">
   <%= link_to "Generate Store Payroll", store_form_path, class: 'waves-effect waves-light btn' %> 
   </div>

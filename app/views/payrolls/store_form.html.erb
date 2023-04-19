@@ -7,8 +7,15 @@
         <%= form_with url: store_payroll_path, method: "get" do |f| %>
           <div class="row">
             <div class="form-inputs">
-              <%= f.collection_select :store_id, Store.active.alphabetical.to_a, :id, :name, prompt: true %><br>
+              <% if current_user.manager_role? %>
+                <%= f.hidden_field :store_id, value: current_user.current_assignment.store.id %>
+              <% else %>
+                <%= f.label :store_id %>
+                <%= f.collection_select :store_id, Store.active.alphabetical.to_a, :id, :name, prompt: true %>
+              <% end %>  
+              <%= f.label :start_date %>           
               <%= f.date_field :start_date, value: (params[:start_date].present? ? Date.parse(params[:start_date]).strftime("%m/%d/%Y") : Date.current.strftime("%Y-%m-%d")) %>
+              <%= f.label :end_date %>           
               <%= f.date_field :end_date, value: (params[:end_date].present? ? Date.parse(params[:end_date]).strftime("%m/%d/%Y") : Date.current.strftime("%Y-%m-%d")) %>
             </div>
       </div>
