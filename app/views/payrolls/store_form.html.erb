@@ -2,11 +2,13 @@
 
 <div class="card">    
   <div class="card-content">
-    <%= form_with url: store_payroll_path, local: true do |f| %>
+    <%= form_with url: store_payroll_path, method: "get", local: true do |f| %>
       <div class="control-group">
         <%= f.label :id, "Store" %>
         <div class="controls">
           <%= f.collection_select :id, Store.active.alphabetical.all, :id, :name, {}, { class: "form-control" } %>
+          <%= f.date_field :start_date %>
+          <%= f.date_field :end_date %>
         </div>
       </div>
    </div>

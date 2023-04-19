@@ -1,14 +1,17 @@
 <h3> Generate Payroll for Employee </h3>
 
-<div class="card">
-  <div class="card-content">
-    <%= form_with url: employee_payroll_path, local: true do |f| %>
-      <div class="control-group">
-        <%= f.label :id, "Employee" %>
-        <div class="controls">
-          <%= f.collection_select :id, Employee.active.alphabetical.all, :id, :proper_name, {}, { class: "form-control" } %>
-        </div>
+<div class="row">
+  <div class="col s9">
+    <div class="card">    
+      <div class="card-content">
+        <%= simple_form_for :payroll, url: employee_payroll_path, method: "get", local: true do |f| %>
+        <div class="row">
+          <div class="form-inputs">
+            <%= f.input :employee_id, collection: Employee.active.alphabetical.all %><br>
+            <%= f.input :start_date, as: :date, label_html: { class: 'active' }%>
+            <%= f.input :end_date, as: :date, label_html: { class: 'active' } %>
       </div>
+    </div>
   </div>
 </div>
 

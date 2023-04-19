@@ -19,7 +19,7 @@
   <tbody>
     <% @active_employees.each do |employee| %>
       <tr>
-        <td><%= employee.name %></td>
+        <td><%= link_to "#{employee.name}", employee_path(employee) %></td>
         <td>
           <% if employee.current_assignment %>
             <%= employee.current_assignment.store ? employee.current_assignment.store.name : 'n/a' %>

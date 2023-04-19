@@ -14,7 +14,7 @@
   <tbody>
     <% @current_assignments.each do |assignment| %>
       <tr>
-        <td><%= assignment.start_date.strftime("%m/%d/%y") %></td>
+        <td><%= link_to "#{assignment.start_date.strftime("%m/%d/%y")}", assignment_path(assignment) %></td>
         <td><%= assignment.store.name %></td>
         <td><%= assignment.employee.proper_name %></td>
         <td><%= assignment.pay_grade.level %></td>
@@ -39,8 +39,8 @@
   <tbody>
     <% @past_assignments.each do |assignment| %>
       <tr>
-        <td><%= assignment.start_date.strftime("%m/%d/%y") %></td>
-        <td><%= assignment.end_date.strftime("%m/%d/%y") %></td>
+        <td><%= link_to "#{assignment.start_date.strftime("%m/%d/%y")}", assignment_path(assignment) %></td>
+        <td><%= assignment.end_date.strftime("%m/%d/%y")%></td>
         <td><%= assignment.store.name %></td>
         <td><%= assignment.employee.proper_name %></td>
         <td><%= assignment.pay_grade.level %></td>

@@ -1,0 +1,5 @@
+<%= f.input :employee_id, collection: Employee.alphabetical.active.to_a %>
+<%= f.input :store_id, collection: Store.alphabetical.active.to_a %>
+<%= f.input :pay_grade_id, collection: PayGrade.active.to_a %>
+<%= f.input :start_date, label_html: { class: 'active' } %>
+<%= f.input :end_date, label_html: { class: 'active' } %>
