@@ -1,1 +1,19 @@
-<h3> Payroll Report for Employee </h3>
+<h3> Payroll Report for <%= @employee_payroll.employee_name %> </h3>
+
+<div class="card">    
+  <div class="card-content">
+    <h5>Time Period:</h5>
+    <p><%= @start_date.strftime("%B %d, %Y") %> - <%= @end_date.strftime("%B %d, %Y") %></p>
+
+    <h5>Employee Information:</h5>
+    <p><strong>Name:</strong> <%= @employee_payroll.employee.proper_name %></p>
+    <p><strong>SSN:</strong> <%= @employee_payroll.ssn %></p>
+    <p><strong>Current Pay Grade:</strong> <%= @employee_payroll.pay_grade %></p>
+    <p><strong>Current Pay Rate:</strong> <%= @employee_payroll.pay_rate %></p>
+    
+    <h5>Payroll Information:</h5>
+    <p><strong>Hours Worked:</strong> <%= @employee_payroll.hours %></p>
+    <p><strong>Money Earned:</strong> <%= @employee_payroll.pay_earned %></p>
+
+  </div>
+</div>

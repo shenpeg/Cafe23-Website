@@ -29,7 +29,7 @@ class PayrollsController <  ApplicationController
     @end_date = Date.parse(params[:end_date])
     @calculator = PayrollCalculator.new(DateRange.new(@start_date, @end_date))
 
-    @employee_payroll = @calculator.create_payroll_record_for(current_user)
+    @employee_payroll = @calculator.create_payroll_record_for(Employee.find(params[:employee_id]))
   end
 
   def store_payroll

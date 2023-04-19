@@ -1,1 +1,37 @@
-<h3> Payroll Report for Store </h3>
+<% if @store_payroll.present? %>
+  <h3> Payroll Report for <%= @store_payroll.first.store.store_name </h3> %>
+
+  <p>Start Date: <%= @start_date %></p>
+  <p>End Date: <%= @end_date %></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Employee Name</th>
+        <th>SSN</th>
+        <th>Pay Grade</th>
+        <th>Pay Rate</th>
+        <th>Hours Worked</th>
+        <th>Money Earned</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @store_payroll.payroll.each do |record| %>
+        <tr>
+          <td><%= record.employee.proper_name %></td>
+          <td><%= record.ssn %></td>
+          <td><%= record.pay_grade %></td>
+          <td><%= record.pay_rate</td> %>
+          <td><%= record.hours %></td>
+          <td><%= record.pay_earned %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+  <h3> Payroll Report </h3>
+  <p>No payrolls found for the specified date range of this store.</p>
+<% end %>
+
+  <%= link_to 'Back', :back %>
