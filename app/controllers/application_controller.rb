@@ -3,13 +3,13 @@ class ApplicationController < ActionController::Base
   
   # just show a flash message instead of full CanCan exception
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "You are not authorized to take this action.  Go away or I shall taunt you a second time."
+    flash[:error] = "You are not authorized to take this action."
     redirect_to home_path
   end
 
   # handle 404 errors with an exception as well
   rescue_from ActiveRecord::RecordNotFound do |exception|
-    flash[:error] = "Seek and you shall find... but not this time"
+    flash[:error] = "Error: Not found."
     redirect_to home_path
   end
 

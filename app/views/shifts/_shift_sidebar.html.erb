@@ -1,0 +1,26 @@
+<div class="card white lighten-4">
+  <div class="card-content">
+    <span class="card-title">Jobs Worked on Shift</span>
+    <% if @shift.shift_jobs.empty? %>
+      <p> No jobs assigned to this shift. </p>
+    <% else %>
+      <ul>
+        <% for shift_job in @shift.shift_jobs %>
+          <li>
+            <% if can? :destroy, ShiftJob %>
+              <%= link_to(shift_job_path(shift_job), class: 'remove', method: :delete) do %>
+                x&nbsp;&nbsp;
+              <% end %>
+            <% end %>
+            <%= link_to "#{shift_job.shift.date}, #{shift_job.job.name}", shift_job %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <% if can? :new, ShiftJob %>
+    <div class="card-action">
+      <%= link_to "Add Job to Shift", new_shift_job_path(job_id: @job), class: 'waves-effect waves-light btn' %>
+    </div>
+  <% end %>
+</div>

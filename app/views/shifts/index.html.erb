@@ -3,27 +3,6 @@
   <%= link_to "Add New Shift", new_shift_path, class: 'waves-effect waves-light btn' %> 
 <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Employee Name</th>
-      <th>Date</th>
-      <th>Start Time</th>
-      <th>End Time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @shifts.each do |shift| %>
-      <tr>
-        <td><%= link_to "#{shift.employee.name}", shift_path(shift) %></td>
-        <td><%= shift.date.strftime("%m/%d/%y") %></td>
-        <td><%= shift.start_time.strftime("%H:%M") %></td>
-        <td><%= shift.end_time.strftime("%H:%M") %></td>      
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
 <h3>Upcoming Shifts</h3>
 <table>
   <thead>
@@ -58,6 +37,28 @@
   </thead>
   <tbody>
     <% @shifts.completed.each do |shift| %>
+      <tr>
+        <td><%= link_to "#{shift.employee.name}", shift_path(shift) %></td>
+        <td><%= shift.date.strftime("%m/%d/%y") %></td>
+        <td><%= shift.start_time.strftime("%H:%M") %></td>
+        <td><%= shift.end_time.strftime("%H:%M") %></td>      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3> All Shift History </h3>
+<table>
+  <thead>
+    <tr>
+      <th>Employee Name</th>
+      <th>Date</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shifts.each do |shift| %>
       <tr>
         <td><%= link_to "#{shift.employee.name}", shift_path(shift) %></td>
         <td><%= shift.date.strftime("%m/%d/%y") %></td>

@@ -17,7 +17,7 @@
       <br><br>
       <%= link_to 'Create New Shift', new_shift_path, class: 'waves-effect waves-light btn' %>
       <br><br>
-      <%= link_to 'Record A Job', new_job_path, class: 'waves-effect waves-light btn' %>
+      <%= link_to 'Record A Job', new_shift_job_path, class: 'waves-effect waves-light btn' %>
     <% end %>
 
     <% if current_user.employee_role? %>
