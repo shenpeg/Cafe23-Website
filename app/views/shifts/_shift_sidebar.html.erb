@@ -1,9 +1,7 @@
 <div class="card white lighten-4">
   <div class="card-content">
     <span class="card-title">Jobs Worked on Shift</span>
-    <% if @shift.shift_jobs.empty? %>
-      <p> No jobs assigned to this shift. </p>
-    <% else %>
+    <% unless @shift.shift_jobs.empty? %>
       <ul>
         <% for shift_job in @shift.shift_jobs %>
           <li>
@@ -20,7 +18,11 @@
   </div>
   <% if can? :new, ShiftJob %>
     <div class="card-action">
-      <%= link_to "Add Job to Shift", new_shift_job_path(job_id: @job), class: 'waves-effect waves-light btn' %>
+      <% if @shift.status == :completed %>
+        <%= link_to "Add Job to Shift", new_shift_job_path(job_id: @job), class: 'waves-effect waves-light btn' %>
+      <% else %>
+        <p>Jobs cannot be added without completing shift.</p>
+      <% end %>
     </div>
   <% end %>
 </div>

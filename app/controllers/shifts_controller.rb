@@ -46,7 +46,7 @@ class ShiftsController < ApplicationController
     @shift = current_user.shifts.find_by(date: Date.today)
 
     if @shift.present?
-      @shift.update(start_time: Time.current)
+      TimeClock.new(@shift).start_shift_at(Time.current)
       flash[:notice] = "Your shift has started."
     else
       flash[:notice] = "You do not have any shifts today"
@@ -59,7 +59,8 @@ class ShiftsController < ApplicationController
     @shift = current_user.shifts.find_by(date: Date.today)
 
     if @shift.present?
-      @shift.update(end_time: Time.current)
+      TimeClock.new(@shift).end_shift_at(Time.current)
+      @shift.update(status: 3)
       flash[:notice] = "Your shift has ended."
     else
       flash[:notice] = "You do not have any shifts today"
@@ -72,7 +73,11 @@ class ShiftsController < ApplicationController
     @shift_today = current_user.shifts.find_by(date: Date.today)
 
     if @shift_today.present?
-       @clock_message = "Please clock in"
+      if @shift_today.started?
+        @clock_message = "Please clock out"
+      else
+        @clock_message = "Please clock in"
+      end
     else
       flash[:notice] = "You do not have any shifts today"
       redirect_to home_path

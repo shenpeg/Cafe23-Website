@@ -1,0 +1,18 @@
+<h2>Pay Grades</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pay Grade Level</th>
+      <th>Active</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pay_grades.each do |pg| %>
+      <tr>
+        <td><%= pg.level %></td>
+        <td><%= pg.active %></td>  
+      </tr>
+    <% end %>
+  </tbody>
+</table>
