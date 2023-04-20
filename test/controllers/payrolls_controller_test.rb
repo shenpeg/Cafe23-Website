@@ -33,6 +33,14 @@ class PayrollsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to home_path
   end
 
+  test "should not get employee_form_path for manager with curr assignment" do
+    assignment = Assignment.create(employee: @kathryn, store: @oakland, start_date: Date.today - 1.week, end_date: nil)
+    get login_path
+    post sessions_path, params: { username: "kathryn", password: "secret" }
+    get employee_form_path
+    assert_redirected_to home_path
+  end
+
   test "should get an employee payroll report" do
     get login_path
     post sessions_path, params: { username: "alex", password: "secret" }

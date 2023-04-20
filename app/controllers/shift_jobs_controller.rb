@@ -2,11 +2,6 @@ class ShiftJobsController < ApplicationController
   before_action :check_login
   authorize_resource
 
-  def index
-    @shift = Shift.find(params[:shift_id])
-    @shift_job = ShiftJob.new(shift: @shift)
-  end
-
   def new
     @shift_job = ShiftJob.new
   end

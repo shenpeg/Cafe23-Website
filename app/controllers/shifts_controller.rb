@@ -74,9 +74,7 @@ class ShiftsController < ApplicationController
 
     if @shift_today.present?
       if @shift_today.started?
-        @clock_message = "Please clock out"
-      else
-        @clock_message = "Please clock in"
+        # @clock_message = "Please clock in"
       end
     else
       flash[:notice] = "You do not have any shifts today"

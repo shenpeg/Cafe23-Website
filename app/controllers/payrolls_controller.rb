@@ -16,7 +16,7 @@ class PayrollsController <  ApplicationController
     authorize! :employee_form, :payrolls_controller
 
     if current_user.manager_role?
-      @employees = current_user.current_assignment.store.employees.all
+      # @employees = current_user.current_assignment.store.employees.all
     else
       @employees = Employee.all
     end

@@ -42,15 +42,11 @@ class StoresController < ApplicationController
 
   def destroy
     ## We don't allow destroy (will deactivate instead)
-    @store.make_inactive
+    # @store.make_inactive
     #redirect_to stores_url, notice: "Successfully deactivated #{@store.name} along with associated stuff."
   end
 
   private
-    def set_store
-      @store = Store.find(params[:id])
-    end
-
     def store_params
       params.require(:store).permit(:name, :street, :city, :state, :zip, :phone, :email, :active)
     end
