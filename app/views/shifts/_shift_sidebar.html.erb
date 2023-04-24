@@ -18,7 +18,7 @@
   </div>
   <% if can? :new, ShiftJob %>
     <div class="card-action">
-      <% if @shift.status == :completed %>
+      <% if @shift.finished? %>
         <%= link_to "Add Job to Shift", new_shift_job_path(job_id: @job), class: 'waves-effect waves-light btn' %>
       <% else %>
         <p>Jobs cannot be added without completing shift.</p>
